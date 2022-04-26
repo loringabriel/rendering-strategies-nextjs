@@ -1,5 +1,12 @@
+import Link from "next/link";
+
 export default function SsrPage({ date }) {
-  return <div>{date}</div>;
+  return (
+    <>
+      <div>{date}</div>
+      <Link href="/">Home</Link>
+    </>
+  );
 }
 
 export async function getServerSideProps() {
