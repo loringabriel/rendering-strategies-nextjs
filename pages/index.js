@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
-export default function Home() {
+export default function Home({ date }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -17,6 +17,7 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         <Link href="/ssr">SSR</Link>
+        <div>Built at: {date}</div>
         <style jsx>{`
         .lorin {
             color:red
@@ -24,4 +25,9 @@ export default function Home() {
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const date = new Date().toLocaleString();
+  return { props: { date } };
 }
