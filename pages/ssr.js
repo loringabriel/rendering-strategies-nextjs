@@ -5,6 +5,7 @@ export default function SsrPage({ date }) {
     <>
       <div>{date}</div>
       <Link href="/">Home</Link>
+      <Link href="/ssg">SSG</Link>
     </>
   );
 }

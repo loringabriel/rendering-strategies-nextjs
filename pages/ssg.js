@@ -13,11 +13,8 @@ export default function Home({ date }) {
       </Head>
 
       <main>
-        <h1 className={"lorin"}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
         <Link href="/ssr">SSR</Link>
-        <Link href="/ssg">SSG</Link>
+        <Link href="/">Home</Link>
         <div>Built at: {date}</div>
         <style jsx>{`
         .lorin {
@@ -30,5 +27,5 @@ export default function Home({ date }) {
 
 export async function getStaticProps() {
   const date = new Date().toLocaleString();
-  return { props: { date } };
+  return { props: { date }, revalidate: 10 };
 }
