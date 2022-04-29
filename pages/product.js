@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home({ date }) {
   return (
@@ -10,10 +11,11 @@ export default function Home({ date }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1>Don&apos;t miss our sale</h1>
-
-        <Link href="/product" passHref>
-          <button>Shop now</button>
+        <h1>Macbook PRO 16 inch</h1>
+        <Image src="/macbook.png" alt="product" width="210" height="140" />
+        <h2>$2,999</h2>
+        <Link href="/" passHref>
+          <button>Add to cart</button>
         </Link>
       </div>
       <footer>
@@ -70,7 +72,11 @@ export default function Home({ date }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
+  function timeout(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
   const date = new Date().toLocaleString();
+  await timeout(3000);
   return { props: { date } };
 }
