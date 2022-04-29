@@ -2,7 +2,17 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Home({ date }) {
+export async function getServerSideProps() {
+  const date = new Date().toLocaleString();
+
+  const productData = await fetch(
+    "https://62108f1f4cd3049e177f3adf.mockapi.io/products/1"
+  ).then((res) => res.json());
+
+  return { props: { date, productData } };
+}
+
+export default function Home({ date, productData }) {
   return (
     <main>
       <Head>
@@ -11,11 +21,18 @@ export default function Home({ date }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1>Macbook PRO 16 inch</h1>
+        <h1>{productData.name}</h1>
         <Image src="/macbook.png" alt="product" width="210" height="140" />
-        <h2>$2,999</h2>
+        <h2>
+          {productData.price.toLocaleString("us-US", {
+            style: "currency",
+            currency: "USD",
+          })}
+        </h2>
         <Link href="/" passHref>
-          <button>Add to cart</button>
+          <button disabled={!productData.available}>
+            {productData.available ? "Add to cart" : "Out of stock"}
+          </button>
         </Link>
       </div>
       <footer>
@@ -23,17 +40,18 @@ export default function Home({ date }) {
           Page built at <strong>{date}</strong>
         </p>
       </footer>
+
       <style jsx>{`
-      strong {
-        margin-left: 4px;
-      }
+        strong {
+          margin-left: 4px;
+        }
         main {
-          height:100%;
+          height: 100%;
           background: #f9fafb;
           width: 100%;
         }
         div {
-          min-height:90%;
+          min-height: 90%;
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -41,14 +59,14 @@ export default function Home({ date }) {
           align-items: center;
         }
         footer {
-          display:flex;
+          display: flex;
           justify-content: center;
           align-content: center;
-           flex-direction: column;
-           text-align: center
+          flex-direction: column;
+          text-align: center;
         }
         h1 {
-          margin:0;
+          margin: 0;
           padding: 24px;
         }
         button {
@@ -63,20 +81,13 @@ export default function Home({ date }) {
           background: #d1d5db;
         }
         button:active {
-          background: #BAC1C9;
+          background: #bac1c9;
         }
-        .lorin {
-            color:red
-        `}</style>
+        button:disabled {
+          cursor: not-allowed;
+          background: #e5e7eb;
+        }
+      `}</style>
     </main>
   );
-}
-
-export async function getServerSideProps() {
-  function timeout(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-  const date = new Date().toLocaleString();
-  await timeout(3000);
-  return { props: { date } };
 }

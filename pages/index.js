@@ -1,7 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
 
-export default function Home({ date }) {
+export async function getStaticProps() {
+  const date = new Date().toLocaleString();
+
+  const pageData = await fetch(
+    "https://62108f1f4cd3049e177f3adf.mockapi.io/settings/1"
+  ).then((res) => res.json());
+
+  return { props: { date, title: pageData.title }, revalidate: 10 };
+}
+
+export default function Home({ date, title }) {
   return (
     <main>
       <Head>
@@ -10,7 +20,7 @@ export default function Home({ date }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1>Don&apos;t miss our sale</h1>
+        <h1>{title}</h1>
 
         <Link href="/product" passHref>
           <button>Shop now</button>
@@ -21,6 +31,7 @@ export default function Home({ date }) {
           Page built at <strong>{date}</strong>
         </p>
       </footer>
+
       <style jsx>{`
       strong {
         margin-left: 4px;
@@ -68,9 +79,4 @@ export default function Home({ date }) {
         `}</style>
     </main>
   );
-}
-
-export async function getStaticProps() {
-  const date = new Date().toLocaleString();
-  return { props: { date } };
 }
