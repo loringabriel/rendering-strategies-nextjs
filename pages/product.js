@@ -12,6 +12,10 @@ export async function getServerSideProps() {
   return { props: { date, productData } };
 }
 
+
+
+
+
 export default function Home({ date, productData }) {
   return (
     <main>
