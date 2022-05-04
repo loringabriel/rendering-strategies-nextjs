@@ -6,7 +6,7 @@ function Product({ product }) {
       key={product.id}
       className="w-64 inline-flex flex-col text-center lg:w-auto"
     >
-      <Link href={`/product`} passHref>
+      <Link href={`/product/${product.id}`} passHref>
         <div className="group relative cursor-pointer">
           <div className="w-full bg-gray-200 rounded-md overflow-hidden aspect-w-1 aspect-h-1">
             <img

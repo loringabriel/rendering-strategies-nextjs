@@ -37,7 +37,7 @@ export default function Home({ description, headline }) {
           <p className="mt-4 text-xl text-gray-600 max-w-[520px]">
             {description}
           </p>
-          <Button link={"/products"} buttonText="Shop Productivity" />
+          <Button link={"/products-csr"} buttonText="Shop Productivity" />
         </div>
 
         <div className="relative flex-1 z-10 w-full h-[240px] lg:min-h-full">

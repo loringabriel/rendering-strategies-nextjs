@@ -100,3 +100,86 @@ export function Promos() {
     </div>
   );
 }
+
+export const products = [
+  {
+    createdAt: "2022-05-02T14:26:22.965Z",
+    name: "Machined Pen",
+    price: "$35",
+    color: "Black",
+    image:
+      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-01.jpg",
+    availableColors: [
+      {
+        name: "Black",
+        colorBg: "#111827",
+      },
+      {
+        name: "Brass",
+        colorBg: "#FDE68A",
+      },
+      {
+        name: "Chrome",
+        colorBg: "#E5E7EB",
+      },
+    ],
+    id: "1",
+  },
+  {
+    createdAt: "2022-05-02T07:52:47.489Z",
+    name: "Earthen Mug",
+    price: "$28",
+    color: "Matte Black",
+    image:
+      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-02.jpg",
+    availableColors: [
+      {
+        name: "Black",
+        colorBg: "#111827",
+      },
+      {
+        name: "Chrome",
+        colorBg: "#E5E7EB",
+      },
+    ],
+    id: "2",
+  },
+  {
+    createdAt: "2022-05-02T11:17:57.328Z",
+    name: "Leatherbound Daily Journal Set",
+    price: "$50",
+    color: "Natural",
+    image:
+      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-03.jpg",
+    availableColors: [
+      {
+        name: "Black",
+        colorBg: "#111827",
+      },
+      {
+        name: "Chrome",
+        colorBg: "#E5E7EB",
+      },
+      {
+        name: "Brass",
+        colorBg: "#FDE68A",
+      },
+    ],
+    id: "3",
+  },
+  {
+    createdAt: "2022-05-02T09:20:32.705Z",
+    name: "Leatherbound Daily Journal",
+    price: "$29",
+    color: "Natural",
+    image:
+      "https://tailwindui.com/img/ecommerce-images/home-page-02-product-04.jpg",
+    availableColors: [
+      {
+        name: "Black",
+        colorBg: "#111827",
+      },
+    ],
+    id: "4",
+  },
+];
