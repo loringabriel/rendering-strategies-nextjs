@@ -1,46 +1,13 @@
-/*
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  const colors = require('tailwindcss/colors')
-
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        colors: {
-          orange: colors.orange,
-        },
-      },
-    },
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-import { Fragment, useState } from "react";
-import {
-  Disclosure,
-  Menu,
-  RadioGroup,
-  Switch,
-  Transition,
-} from "@headlessui/react";
-import { QuestionMarkCircleIcon, SearchIcon } from "@heroicons/react/solid";
+import { useState } from "react";
+import { Disclosure, RadioGroup, Switch } from "@headlessui/react";
+import { QuestionMarkCircleIcon } from "@heroicons/react/solid";
 import {
   BellIcon,
   CogIcon,
   CreditCardIcon,
   KeyIcon,
-  MenuIcon,
   UserCircleIcon,
   ViewGridAddIcon,
-  XIcon,
 } from "@heroicons/react/outline";
 
 const user = {

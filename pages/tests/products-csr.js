@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Product from "../components/Product";
-import ProductContainer from "../components/ProductContainer";
+import Product from "../../components/Product";
+import ProductContainer from "../../components/ProductContainer";
+import Link from "next/link";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -18,10 +19,13 @@ export default function ProductsPage() {
   }, []);
 
   return (
-    <ProductContainer>
-      {products.map((product) => (
-        <Product product={product} />
-      ))}
-    </ProductContainer>
+    <>
+      <ProductContainer>
+        {products.map((product) => (
+          <Product product={product} />
+        ))}
+      </ProductContainer>
+      <Link href="/tests/firebase">Firebase SSR</Link>
+    </>
   );
 }
