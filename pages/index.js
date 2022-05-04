@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
-import { promos } from "../helpers/helpers";
+import { Promos } from "../helpers/helpers";
 import Footer from "../components/Footer";
+import Button from "../components/Button";
 
 export async function getStaticProps() {
   const settings = await fetch(
@@ -16,28 +16,6 @@ export async function getStaticProps() {
     },
     revalidate: 10,
   };
-}
-
-function Promos() {
-  return (
-    <div className="hidden lg:flex">
-      {promos.map((item, i) => {
-        return (
-          <div
-            className={`flex-1 flex items-center justify-center flex-col h-[80px] ${
-              i === 1 && "border-x"
-            }`}
-            key={i}
-          >
-            <p className="text-gray-400 font-light text-sm mb-1">
-              {item.action}
-            </p>
-            <p className="font-semibold">{item.description}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
 }
 
 export default function Home({ description, headline }) {
@@ -59,16 +37,7 @@ export default function Home({ description, headline }) {
           <p className="mt-4 text-xl text-gray-600 max-w-[520px]">
             {description}
           </p>
-          <div className="mt-6">
-            <Link href={"/products"} passHref>
-              <a
-                href="#"
-                className="inline-block bg-indigo-600 border border-transparent py-3 px-8 rounded-md font-medium text-white hover:bg-indigo-700"
-              >
-                Shop Productivity
-              </a>
-            </Link>
-          </div>
+          <Button link={"/products"} buttonText="Shop Productivity" />
         </div>
 
         <div className="relative flex-1 z-10 w-full h-[240px] lg:min-h-full">

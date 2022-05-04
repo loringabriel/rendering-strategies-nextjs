@@ -78,3 +78,25 @@ export const footerLinks = {
     },
   ],
 };
+
+export function Promos() {
+  return (
+    <div className="hidden lg:flex">
+      {promos.map((item, i) => {
+        return (
+          <div
+            className={`flex-1 flex items-center justify-center flex-col h-[80px] ${
+              i === 1 && "border-x"
+            }`}
+            key={i}
+          >
+            <p className="text-gray-400 font-light text-sm mb-1">
+              {item.action}
+            </p>
+            <p className="font-semibold">{item.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
