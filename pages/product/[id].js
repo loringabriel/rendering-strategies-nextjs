@@ -1,8 +1,7 @@
-import Image from "next/image";
-
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const { id } = context.params;
   const res = await fetch(
-    "https://62108f1f4cd3049e177f3adf.mockapi.io/products/1"
+    `https://62108f1f4cd3049e177f3adf.mockapi.io/products/${id}`
   );
   const productData = await res.json();
 
