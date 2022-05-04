@@ -29,7 +29,7 @@ export default function Home({ description, headline }) {
 
       <Promos />
 
-      <div className="h-[590px] block lg:flex lg:items-center bg-gray-100">
+      <div className="h-[610px] block lg:flex lg:items-center bg-gray-100">
         <div className="flex-1 h-[380px] pl-6  flex flex-col justify-center">
           <h1 className=" max-w-[520px] text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
             {headline}
